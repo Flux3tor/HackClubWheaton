@@ -64,11 +64,37 @@ a:hover{text-decoration-style:wavy}
 .hero-h1 em{font-style:normal;display:block;background:linear-gradient(90deg,var(--red) 0%,var(--orange) 50%,var(--red) 100%);background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
 @keyframes shimmer{0%{background-position:200% center}100%{background-position:-200% center}}
 .hero-sub{font-size:1.1rem;color:var(--secondary);line-height:1.7;max-width:420px;margin-bottom:36px}
-.photo-card{border-radius:auto;overflow:hidden;border:1px solid rgba(255,255,255,.08);box-shadow:0 40px 100px rgba(0,0,0,.8);position:relative;transition:transform .4s ease,box-shadow .4s ease}
-.photo-card:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 50px 120px rgba(0,0,0,.85),0 0 60px rgba(236,55,80,.12)}
-.photo-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),var(--orange),var(--yellow));z-index:2}
-.photo-card img{width:100%;object-fit:cover;display:block}
-.photo-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(18,18,23,.92) 0%,rgba(18,18,23,.1) 50%,transparent 100%)}
+.photo-card {
+  /* 1. Remove the background card styles */
+  background: transparent; 
+  border: none;
+  box-shadow: none;
+  
+  /* 2. Keep these for layout/animation */
+  position: relative;
+  overflow: visible; /* Changed from hidden so drop-shadows show */
+  transition: transform .4s ease;
+}
+
+.photo-card:hover {
+  /* Remove the shadow on hover too */
+  box-shadow: none; 
+  transform: translateY(-6px) scale(1.05);
+}
+
+.photo-card img {
+  width: 100%;
+  object-fit: contain; /* Better for logos */
+  
+  /* 3. This adds a shadow to the LOGO SHAPE, not the box */
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); 
+}
+
+/* Remove the dark gradient overlay if you don't want it */
+.photo-ov {
+  display: none;
+}
+
 .photo-foot{position:absolute;bottom:0;left:0;right:0;padding:20px;display:flex;align-items:center;gap:10px}
 .photo-logo{width:36px;height:36px;border-radius:10px;overflow:hidden;background:#3b9dd4;flex-shrink:0}
 .photo-logo img{width:100%;height:100%;object-fit:cover}
