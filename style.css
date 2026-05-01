@@ -139,8 +139,15 @@ p.body-t{font-size:.98rem;color:var(--secondary);line-height:1.75;max-width:580p
 .team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:48px}
 .member{background:rgba(37,36,41,.7);border:1px solid rgba(255,255,255,.06);border-radius:var(--r-ex);padding:28px;box-shadow:var(--shadow-card);position:relative;overflow:hidden;transition:transform .125s ease-in-out,box-shadow .125s ease-in-out,border-color .2s}
 .member:hover{transform:scale(1.04);box-shadow:var(--shadow-el);border-color:rgba(236,55,80,.3)}
-.member.lead::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),var(--orange))}
-.m-av{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.15rem;color:#fff;margin-bottom:14px;background:linear-gradient(135deg,var(--red),var(--orange));box-shadow:0 8px 24px rgba(236,55,80,.4)}
+.m-av {
+  width: 64px;          /* Adjust size as needed */
+  height: 64px;         /* Must match width */
+  border-radius: 50%;   /* This makes it a circle */
+  object-fit: cover;    /* This prevents the image from stretching */
+  display: block;
+  margin-bottom: 12px;  /* Space below the image */
+  border: 2px solid var(--red); /* Optional: adds a nice ring around your pfp */
+}
 .m-badge{display:inline-block;background:rgba(236,55,80,.15);color:var(--red);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:var(--r-pill);margin-bottom:8px}
 .m-name{font-size:1.05rem;font-weight:700;color:#fff}
 .m-role{font-size:.82rem;color:var(--muted);margin-top:4px}
